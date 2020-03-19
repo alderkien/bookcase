@@ -37,7 +37,7 @@
                     </select>
                 </div>
                             
-                <button type="submit" class="btn btn-primary-outline">Добавить</button>
+                <button type="submit" class="btn btn-primary">Добавить</button>
             </form>
         </div>
     </div>
