@@ -10,6 +10,6 @@ class AuthorController extends Controller
         public function index()
         {
             $authors = Author::withCount('books')->paginate(6);
-            return view('bookcase/authors',['authors'=>$authors]);
+            return view('author.index',['authors'=>$authors]);
         }
 }

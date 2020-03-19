@@ -22,5 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/books', 'BookController@index')->name('books');
+Route::get('/books/create', 'BookController@create')->name('books.create')->middleware('auth');
+Route::post('/books/store', 'BookController@store')->name('books.store')->middleware('auth');
 
 Route::get('/authors', 'AuthorController@index')->name('authors');
