@@ -29,16 +29,19 @@
             <div class="card">
                 <div class="card-header text-center">{{ $book->name }}</div>
                 <div class="card-body">
-                Авторы: 
-                @foreach($book->authors as $author)
+                    <p>
+                        {!! Str::words($book->description,20,'...')!!}
+                    </p>
+                    Авторы: 
+                    @foreach($book->authors as $author)
                     {{ $author->name }} {{ $author->surname }}{{ $loop->last ? '' : ', ' }}
-                @endforeach
+                    @endforeach
                 </div>
             </div>
         </div>
         @empty
         <div class="col-lg-4 col-md-4 col-sm-12 mb-2">
-            <h2>Ничего не найдено</h2>
+            <p>Ничего не найдено</p>
         </div>
         @endforelse
     </div>
