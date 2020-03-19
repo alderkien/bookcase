@@ -11,8 +11,8 @@ class Author extends Model
         return $this->belongsToMany('App\Book','book_author');
     }
 
-    public function full_name()
+    public function getFullNameAttribute()
     {
-        return $this->surname.' '.$this->name.' '.$this->patronymic;
+        return "{$this->surname} {$this->name} {$this->patronymic}";
     }
 }

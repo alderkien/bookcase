@@ -11,12 +11,7 @@ class BookController extends Controller
         public function index(Request $request)
         {
             $request->flash();
-            if($request->has('search')){
-                $books = Book::where('name','like',"%".$request->get('search')."%")->paginate(12);
-            }else{
-                $books = Book::paginate(12);
-            }
-            
+            $books = Book::search($request->get('search'))->paginate(12);
             return view('book.index',['books'=>$books]);
         }
 

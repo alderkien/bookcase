@@ -7,7 +7,7 @@
             <div class="col-lg-4 col-md-4 col-sm-12 mb-2">
                 <div class="card">
                     <div class="card-header">
-                        {{ $author->full_name() }}
+                        {{ $author->fullName }}
                     </div>
                     <div class="card-body">
                         Книг автора: {{ $author->books_count }}
