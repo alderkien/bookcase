@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
-use App\Author;
 
-class BookCaseController extends Controller
+class BookController extends Controller
 {
-        public function books(Request $request)
+        public function index(Request $request)
         {
             $request->flash();
             if($request->has('search')){
@@ -20,9 +19,11 @@ class BookCaseController extends Controller
             return view('bookcase/books',['books'=>$books]);
         }
 
-        public function authors()
-        {
-            $authors = Author::withCount('books')->paginate(6);
-            return view('bookcase/authors',['authors'=>$authors]);
+        public function create(){
+            //
+        }
+
+        public function store(Request $request){
+            //
         }
 }
