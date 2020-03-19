@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreBook;
 use App\Book;
 use App\Author;
 
@@ -20,14 +21,9 @@ class BookController extends Controller
             return view('book.create',['authors'=>$authors]);
         }
 
-        public function store(Request $request){
+        public function store(StoreBook $request){
 
-            $request->validate([
-                'name' => 'required|max:255',
-                'description' => 'required',
-                'isbn' => 'required|max:30',
-                'authors' => 'required',
-            ]);
+            $request->validated();
     
             $book = new Book([
                 'name' => $request->get('name'),
