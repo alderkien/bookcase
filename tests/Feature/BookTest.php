@@ -61,8 +61,24 @@ class BookTest extends TestCase
 
         Book::where('name', 'ItNeedToBeDestroyed__now')->delete();
         $user->delete();
+    }
 
+    public function testStoreFail(){
+        $user = factory(User::class)->create();
+        $response = $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
 
+        $response = $this->post('/books/store');
+        $response->assertStatus(302);
+        $response->assertSessionHasErrors(['name','description','isbn','authors']);
+
+        $response = $this->post('/books/store',['isbn'=>'1234567890123456789012345678901']);
+        $response->assertStatus(302);
+        $response->assertSessionHasErrors(['isbn']);
+
+        $user->delete();
     }
 
 }
