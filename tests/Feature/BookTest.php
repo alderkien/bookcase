@@ -14,7 +14,6 @@ class BookTest extends TestCase
      *
      * @return void
      */
-    use RefreshDatabase;
 
     public function testBooks()
     {

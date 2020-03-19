@@ -13,8 +13,7 @@ class AuthorTest extends TestCase
      *
      * @return void
      */
-    use RefreshDatabase;
-    
+
     public function testAuthors()
     {
         $response = $this->get('/authors');
