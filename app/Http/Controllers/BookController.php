@@ -23,13 +23,9 @@ class BookController extends Controller
 
         public function store(StoreBook $request){
 
-            $request->validated();
+            $validated = $request->validated();
     
-            $book = new Book([
-                'name' => $request->get('name'),
-                'description' => $request->get('description'),
-                'isbn' => $request->get('isbn'),
-            ]);
+            $book = new Book($validated);
             $book->save();
             $book->authors()->attach($request->get('authors'));
             return redirect('/books')->with('success', 'Книга добавлена.');
