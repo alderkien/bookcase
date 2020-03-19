@@ -59,7 +59,7 @@ class BookTest extends TestCase
             'name' => 'ItNeedToBeDestroyed__now',
         ]);
 
-        Book::where('name', 'ItNeedToBeDestroyed')->delete();
+        Book::where('name', 'ItNeedToBeDestroyed__now')->delete();
         $user->delete();
 
 
